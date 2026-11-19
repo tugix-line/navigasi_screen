@@ -1,0 +1,83 @@
+import 'package:flutter/material.dart';
+
+class DetailProdukPage extends StatelessWidget {
+  const DetailProdukPage({super.key, required this.produk});
+
+  final Product produk;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => ProdukPage()),
+            );
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
+        title: Text('Detail Produk'),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Center(
+              child: Icon(Icons.inventory_2, size: 90, color: Colors.teal),
+            ),
+            SizedBox(height: 24),
+            Text(
+              'Informasi Produk',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 16),
+            Card(
+              elevation: 2,
+              child: Column(
+                children: [
+                  ListTile(
+                    leading: const Icon(Icons.shopping_bag),
+                    title: const Text('Nama Produk'),
+                    subtitle: Text(
+                      produk.nama,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Divider(height: 1),
+                  ListTile(
+                    leading: const Icon(Icons.category),
+                    title: const Text('Kategori'),
+                    subtitle: Text(
+                      produk.kategori,
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  ),
+                  Divider(height: 1),
+                  ListTile(
+                    leading: const Icon(Icons.payments),
+                    title: const Text('Harga'),
+                    subtitle: Text(
+                      produk.harga,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: Colors.teal,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -1,0 +1,8 @@
+class Product {
+  // tiap produk terdiri dari properti name dan price
+  final String nama;
+  final String kategori;
+  final String harga;
+  // export class Product
+  const Product(this.nama, this.kategori, this.harga);
+}

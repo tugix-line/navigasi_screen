@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+
+class ProfilPage extends StatelessWidget {
+  const ProfilPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => MainApp()),
+            );
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
+        title: Text('Profil'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Text(
+          "Ini Halaman Profil",
+          style: TextStyle(
+            color: Colors.blue,
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      backgroundColor: Colors.blue[50],
+    );
+  }
+}
